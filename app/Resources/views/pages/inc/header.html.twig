@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Symfony 3 CRUD Application</title>
+    <link rel="stylesheet" href="{{ absolute_url(asset("css/bootstrap.css")) }}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Symfony 3 CRUD Application</a>
+</nav>
+<div class="container">
+    {% for success_message in app.session.flashbag.get('message') %}
+        <div class="alert alert-success">{{ success_message }}</div>
+    {% endfor %}
+</div>

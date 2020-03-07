@@ -1,0 +1,40 @@
+cd /Applications/XAMPP/xamppfiles/htdocs/
+
+composer create-project symfony/framework-standard-edition symfony3crud "3.1.*"
+
+cd symfony3crud/
+
+--
+vi /Applications/XAMPP/xamppfiles/etc/httpd.conf
+User Aijaz
+Group admin
+
+OR
+
+chmod -R 777 var/cache var/logs
+--
+
+php bin/console
+
+
+php bin/console generate:controller
+Controller name: AppBundle:Post
+
+
+php bin/console doctrine:database:create
+
+
+php bin/console generate:doctrine:entity
+The Entity shortcut name: AppBundle:Post
+
+php bin/console doctrine:schema:update --dump-sql
+
+php bin/console doctrine:schema:update --force
+
+
+php bin/console doctrine:generate:entities AppBundle:Post
+
+php bin/console doctrine:schema:update --force
+
+
+sudo chmod -R 777 var/sessions/
