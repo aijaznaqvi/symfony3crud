@@ -38,3 +38,15 @@ php bin/console doctrine:schema:update --force
 
 
 sudo chmod -R 777 var/sessions/
+
+--
+Other useful commands:
+
+To run application with built-in web server:
+cd /Applications/XAMPP/xamppfiles/htdocs/
+
+cd symfony3crud/
+
+php bin/console server:run
+
+--
