@@ -1,10 +1,23 @@
-cd /Applications/XAMPP/xamppfiles/htdocs/
+- Install XAMPP
 
-composer create-project symfony/framework-standard-edition symfony3crud "3.1.*"
+- Install Composer
+
+- Set Environment Variables for PHP, MySQL and Composer.
+
+- Create Symfony Project:
+------------------------
+
+cd c:\xampp\htdocs (on Windows)
+OR
+cd /Applications/XAMPP/xamppfiles/htdocs/ (on MacOS)
+
+composer create-project symfony/framework-standard-edition symfony3crud "3.1.*" (for Symfony 3.1.10)
 
 cd symfony3crud/
 
 --
+- Set Permission on MacOS:
+-------------------------
 vi /Applications/XAMPP/xamppfiles/etc/httpd.conf
 User Aijaz
 Group admin
@@ -13,29 +26,42 @@ OR
 
 chmod -R 777 var/cache var/logs
 --
+- Symfony commands:
+------------------
 
 php bin/console
 
-
+- Create Controller:
+-------------------
 php bin/console generate:controller
 Controller name: AppBundle:Post
 
+- Create pages folder and create Views inside it and Set routes
 
+- Create inc folder under pges folder and create header and footer files inside it
+
+- Create database:
+-----------------
 php bin/console doctrine:database:create
 
-
-php bin/console generate:doctrine:entity
+- Create entity:
+---------------
+php bin/console doctrine:generate:entity
 The Entity shortcut name: AppBundle:Post
 
+- Update database changes in database:
+-------------------------------------
 php bin/console doctrine:schema:update --dump-sql
 
 php bin/console doctrine:schema:update --force
 
-
+- Add columns to the entity:
+---------------------------
 php bin/console doctrine:generate:entities AppBundle:Post
 
 php bin/console doctrine:schema:update --force
 
+--
 
 sudo chmod -R 777 var/sessions/
 
@@ -50,3 +76,5 @@ cd symfony3crud/
 php bin/console server:run
 
 --
+
+I have saved database script in db folder.
